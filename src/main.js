@@ -22,6 +22,7 @@ document.addEventListener("keydown", (event) => {
 function startGame() {
   snake = initSnake();
   food = generateFood(box, canvas);
+  drawSnake(x,y);
 
   gameInterval = setInterval(draw, gameSpeed); // Stockage de l'identifiant de l'intervalle
 }

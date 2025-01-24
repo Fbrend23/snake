@@ -10,15 +10,16 @@
  * @param {string} currentDirection - La direction actuelle du serpent (peut être "UP", "DOWN", "LEFT", ou "RIGHT").
  * @returns {string} - La nouvelle direction du serpent après traitement, ou la direction actuelle si le changement n'est pas valide.
  */
-function handleDirectionChange(event) {
+function handleDirectionChange(event,direction) {
+  currentDirection = direction;
   if(event.key === "ArrowLeft" && currentDirection !== "LEFT"){
-    currentDirection ="LEFT";
+    direction = currentDirection ="LEFT";
   }else if(event.key ==="ArrowRight" && currentDirection !=="RIGHT"){
-    currentDirection="RIGHT";
+    direction = currentDirection="RIGHT";
   }else if(event.key ==="ArrowUp" && currentDirection !=="UP"){
-    currentDirection="UP";
+    direction =currentDirection="UP";
   }else if(event.key ==="ArrowDown" && currentDirection !=="DOWN"){
-    currentDirection="DOWN";
-  }
+    direction = currentDirection="DOWN";
+  }return direction;
 }// End handleDirectionChange
 
