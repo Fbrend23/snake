@@ -8,11 +8,9 @@
  */
 function initSnake() {
  //Position du snake au millieu du canvas
- snake = 
- {
+ snake = [{
   x: 9 * box, y: 10 * box
- }
- return snake;
+ }]
 }
 
 /**
@@ -47,6 +45,6 @@ function moveSnake() {
  */
 function drawSnake(x,y) {
   //Dessine un carré sur le canvas
-  ctx.fillStyle = "204, 0, 0";
-  ctx.fillRect = (x, y, box, box)
+  ctx.fillStyle = "rgb(204, 0, 0)";
+  ctx.fillRect(x, y, box, box)
 }

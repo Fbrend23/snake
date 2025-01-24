@@ -11,7 +11,7 @@ const box = 20; //Taille d'un carré pour le serpent et la pomme
 const gameSpeed = 200;
 let snake;
 let food;
-let direction = "RIGHT";
+let direction = "RIGHT"; // Direction initial du serpent
 let score = 0;
 let gameInterval; // Variable pour stocker l'identifiant de l'intervalle
 
