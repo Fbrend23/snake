@@ -11,15 +11,18 @@
  * @returns {string} - La nouvelle direction du serpent après traitement, ou la direction actuelle si le changement n'est pas valide.
  */
 function handleDirectionChange(event,direction) {
-  currentDirection = direction;
-  if(event.key === "ArrowLeft" && currentDirection !== "LEFT"){
-    direction = currentDirection ="LEFT";
-  }else if(event.key ==="ArrowRight" && currentDirection !=="RIGHT"){
-    direction = currentDirection="RIGHT";
-  }else if(event.key ==="ArrowUp" && currentDirection !=="UP"){
-    direction =currentDirection="UP";
-  }else if(event.key ==="ArrowDown" && currentDirection !=="DOWN"){
-    direction = currentDirection="DOWN";
-  }return direction;
+  const validInput = ["ArrowLeft","ArrowRight","ArrowUp","ArrowDown"] //Touches autorisées
+  if (validInput.includes(event.key))
+  {
+    if(event.key === "ArrowLeft" && direction !== "LEFT" && direction !== "RIGHT"){
+      direction ="LEFT";
+    }else if(event.key ==="ArrowRight" && direction !=="RIGHT" && direction !=="LEFT"){
+      direction ="RIGHT";
+    }else if(event.key ==="ArrowUp" && direction !=="UP" && direction !=="DOWN"){
+      direction = "UP";
+    }else if(event.key ==="ArrowDown" && direction !=="DOWN" && direction !=="UP"){
+      direction = "DOWN";
+  }
+}return direction;
 }// End handleDirectionChange
 
