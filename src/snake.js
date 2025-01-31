@@ -9,8 +9,9 @@
 function initSnake() {
  //Position du snake au millieu du canvas
  snake = [{
-  x: 9 * box, y: 10 * box
- }]
+  x: 10 * box, y: 10 * box
+ }];
+return snake[x,y]
 }
 
 /**
@@ -26,9 +27,7 @@ function initSnake() {
  * @returns {{x: number, y: number}} - Un objet représentant les nouvelles coordonnées `x` et `y` de la tête du serpent après le déplacement.
  */
 function moveSnake() {
-  // for(let i = Array.length - 2; i >= 0; i--){
-  //   Array[i + 1] = {Array[i]};
-  // }
+
 }
 
 /**
