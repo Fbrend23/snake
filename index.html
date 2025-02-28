@@ -17,18 +17,25 @@
         border: 2px solid #000;
         background-color: #fff;
       }
-      h1,h2,h3, #score{
+      h1,h2,h3, #score, #StartGamu{
         text-align: center;
+      }
+
+      span{
+        color: green;
+        text-decoration: underline;
+        font-weight: bold;
       }
     </style>
   </head>
   <body>
     <div>
-    <h1>Jeu du snake</h1>
-    <h2>P_Remed</h2>
-    <h3>Brendan Fleurdelys</h3>
-    <canvas id="gameCanvas" width="400" height="400"></canvas>
-    <p id="score">Score: </p>
+      <h1>Jeu du snake</h1>
+      <h2>P_Remed</h2>
+      <h3>Brendan Fleurdelys</h3>
+      <p id="StartGamu">Appuyez sur <span>ESPACE</span> pour lancer le jeu</p>
+      <canvas id="gameCanvas" width="400" height="400"></canvas>
+      <p id="score">Score: </p>
     </div>
     <script type="module" src="./src/main.js"></script>
   </body>
