@@ -18,18 +18,20 @@ let gameInterval; // Variable pour stocker l'identifiant de l'intervalle
 document.addEventListener("keydown", (event) => {
   direction = handleDirectionChange(event, direction);
 });
-
+//************** Main **************//
 startGame();
 
 function startGame() {
-  print(snake)
-  snake = initSnake();
+  console.log(snake)
+  snake = initSnake(box);
   // food = generateFood(box, canvas);
-  drawSnake(x,y);
+  draw();
   gameInterval = setInterval(draw, gameSpeed); // Stockage de l'identifiant de l'intervalle
 }
 
 function draw() {
-  // A compléter
+  ctx.clearRect(0, 0, canvas.width, canvas.height); // Efface le canvas
+  moveSnake(snake, direction, box);
+  drawSnake(ctx, snake, box);
 }
 
