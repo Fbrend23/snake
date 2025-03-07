@@ -27,18 +27,29 @@ document.addEventListener("keydown", (event) => {
 
 function startGame() {
   document.getElementById("StartGamu").textContent =""; //Efface le message d'instruction de départ
-  console.log(snake) //log pour les erreurs
+
   snake = initSnake(box); //initilisation du snake
   food = generateFood(box, canvas);
+
   draw();
   gameInterval = setInterval(draw, gameSpeed); // Stockage de l'identifiant de l'intervalle
   
 }
 
 function draw() {
+
+
   ctx.clearRect(0, 0, canvas.width, canvas.height); // Efface le canvas
   moveSnake(snake, direction, box);
-  drawSnake(ctx, snake, box);
+
+  //Vérifie si le serpent mange de la nourriture
+  if (snake[0].x === food.x && snake[0].y === food.y) {
+    food = generateFood(box, canvas);
+  }else{
+    snake.pop(); //Supprime la queue si le serpent ne mange rien pour simuler le déplacement
+  }
+
   drawFood(ctx, food, box)
+  drawSnake(ctx, snake, box);
 }
 

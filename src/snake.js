@@ -42,7 +42,6 @@ export function moveSnake(snake, direction, box) {
   }
 
   snake.unshift(head); // Ajoute la nouvelle tête
-  snake.pop(); // Supprime la queue pour avancer
 }
 
 /**
