@@ -55,6 +55,10 @@ export function checkWallCollision(snake, canvas, box) {
  */
 
 export function drawGameOver(ctx, canvas, score) {
+
+  //enlève l'ancien score
+  document.getElementById("score").textContent = "";
+  // Efface le canvas
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   
   // Configure la police et l'alignement
