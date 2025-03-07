@@ -63,7 +63,7 @@ export function drawSnake(ctx,snake,box) {
       ctx.fillStyle ="red";
     }else
       {
-      ctx.fillStyle = "white";
+      ctx.fillStyle = "grey";
       }
   ctx.fillRect(segment.x, segment.y, box, box);
   });
