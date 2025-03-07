@@ -34,9 +34,6 @@ ctx.fillText("Appuyez sur Espace pour jouer", canvas.width / 2, canvas.height / 
 
 //Fonction pour lancer le jeu
 function startGame() {
-  
-  document.getElementById("StartGamu").textContent =""; //Efface le message d'instruction de départ
-
   snake = initSnake(box); //initilisation du snake
   food = generateFood(box, canvas, snake);
 
