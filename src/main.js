@@ -25,6 +25,14 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
+//Affiche le message d'instruction de départ
+ctx.font = "20px Arial";
+ctx.fillStyle = "black";
+ctx.textAlign = "center";
+ctx.textBaseline = "middle";
+ctx.fillText("Appuyez sur Espace pour jouer", canvas.width / 2, canvas.height / 2);
+
+//Fonction pour lancer le jeu
 function startGame() {
   
   document.getElementById("StartGamu").textContent =""; //Efface le message d'instruction de départ
