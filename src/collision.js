@@ -35,8 +35,12 @@ export function checkCollision(snake) {
  * @param {number} box - La taille d'une case de la grille en pixels, utilisée pour déterminer les limites du déplacement du serpent.
  * @returns {boolean} - Retourne `true` si la tête du serpent entre en collision avec un mur, sinon `false`.
  */
-export function checkWallCollision() {
-  // A compléter
+export function checkWallCollision(snake, canvas, box) {
+  let head = snake[0];
+  return (
+    head.x < 0 || head.x >= canvas.width || head.y < 0 || head.y >= canvas.height
+  );
+ 
 }
 
 /**

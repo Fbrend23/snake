@@ -1,7 +1,7 @@
 import { initSnake, moveSnake, drawSnake } from "./snake.js";
 import { generateFood, drawFood } from "./food.js";
 import { handleDirectionChange } from "./controls.js";
-import { checkCollision, drawGameOver, /*checkWallCollision*/ } from "./collision.js";
+import { checkCollision, drawGameOver, checkWallCollision } from "./collision.js";
 import { drawScore } from "./score.js";
 
 const canvas = document.getElementById("gameCanvas");
@@ -49,7 +49,7 @@ function draw() {
 
   ctx.clearRect(0, 0, canvas.width, canvas.height); // Efface le canvas
 
-  if(checkCollision(snake) /*|| checkWallCollision(snake, canvas, box)*/){
+  if(checkCollision(snake) || checkWallCollision(snake, canvas, box)){
     clearInterval(gameInterval); // Arrête le jeu
     drawGameOver(ctx, canvas, score); // Affiche le message de fin de jeu
     gameInterval = null; // Réinitialise l'identifiant de l'intervalle
