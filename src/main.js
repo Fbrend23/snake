@@ -2,7 +2,7 @@ import { initSnake, moveSnake, drawSnake } from "./snake.js";
 import { generateFood, drawFood } from "./food.js";
 import { handleDirectionChange } from "./controls.js";
 // import { checkCollision, checkWallCollision } from "./collision.js";
-// import { drawScore } from "./score.js";
+import { drawScore } from "./score.js";
 
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
@@ -37,21 +37,24 @@ function startGame() {
 }
 
 function draw() {
-  console.log("Longueur du serpent :", snake.length);
-  console.log("Position de la tête :", snake[0]);
-  console.log("Position de la nourriture :", food);
+  // console.log("Longueur du serpent :", snake.length);
+  // console.log("Position de la tête :", snake[0]);
+  // console.log("Position de la nourriture :", food);
 
   ctx.clearRect(0, 0, canvas.width, canvas.height); // Efface le canvas
   moveSnake(snake, direction, box);
-  console.log("Le serpent mange ! Taille avant = ", snake.length);
+  // console.log("Le serpent mange ! Taille avant = ", snake.length);
   //Vérifie si le serpent mange de la nourriture
   if (snake[0].x === food.x && snake[0].y === food.y) {
     food = generateFood(box, canvas);
-    console.log("Taille après = ", snake.length);
+    score++;
+    console.log(score);
+    // console.log("Taille après = ", snake.length);
   }else{
     snake.pop(); //Supprime la queue si le serpent ne mange rien pour simuler le déplacement
   }
-
+  
+  drawScore(score);
   drawFood(ctx, food, box)
   drawSnake(ctx, snake, box);
 }
