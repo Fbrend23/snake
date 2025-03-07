@@ -9,11 +9,22 @@
  * @param {HTMLCanvasElement} canvas - L'élément canvas représentant la surface de jeu.
  * @returns {{x: number, y: number}} - Un objet contenant les coordonnées `x` et `y` de la nourriture générée.
  */
-export function generateFood(box, canvas) {
-const food ={
+export function generateFood(box, canvas, snake) {
+let food;
+let foodOnSnake = true;
+
+
+while(foodOnSnake){
+// Génère une position aléatoire sur la grille
+food = {
     x: Math.floor(Math.random() * (canvas.width / box)) * box, 
     y: Math.floor(Math.random() * (canvas.height / box)) * box
 };
+
+//Vérifie si la nourriture est sur le serpent
+foodOnSnake = snake.some(segment => segment.x === food.x && segment.y === food.y);
+}
+
 return food;
 
 }

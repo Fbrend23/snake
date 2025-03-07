@@ -29,7 +29,7 @@ function startGame() {
   document.getElementById("StartGamu").textContent =""; //Efface le message d'instruction de départ
 
   snake = initSnake(box); //initilisation du snake
-  food = generateFood(box, canvas);
+  food = generateFood(box, canvas, snake);
 
   draw();
   gameInterval = setInterval(draw, gameSpeed); // Stockage de l'identifiant de l'intervalle
@@ -46,7 +46,7 @@ function draw() {
   // console.log("Le serpent mange ! Taille avant = ", snake.length);
   //Vérifie si le serpent mange de la nourriture
   if (snake[0].x === food.x && snake[0].y === food.y) {
-    food = generateFood(box, canvas);
+    food = generateFood(box, canvas, snake);
     score++;
     console.log(score);
     // console.log("Taille après = ", snake.length);
