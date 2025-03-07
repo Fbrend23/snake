@@ -10,8 +10,16 @@
  * @param {Array<{x: number, y: number}>} snakeArray - Un tableau d'objets représentant les segments du serpent, où chaque objet contient des coordonnées `x` et `y`.
  * @returns {boolean} - Retourne `true` si la tête du serpent entre en collision avec un segment de son corps, sinon `false`.
  */
-function checkCollision() {
-  // A compléter
+export function checkCollision(snake) {
+  let snakeCollision = false;
+  let head = snake[0];
+  for (let i = 1; i < snake.length; i++) {
+    if (head.x === snake[i].x && head.y === snake[i].y) {
+      snakeCollision = true;
+      break;
+    }
+  }
+  return snakeCollision;
 }
 
 /**
@@ -27,6 +35,37 @@ function checkCollision() {
  * @param {number} box - La taille d'une case de la grille en pixels, utilisée pour déterminer les limites du déplacement du serpent.
  * @returns {boolean} - Retourne `true` si la tête du serpent entre en collision avec un mur, sinon `false`.
  */
-function checkWallCollision() {
+export function checkWallCollision() {
   // A compléter
+}
+
+/**
+ * Dessine le score du joueur sur le canvas.
+ *
+ * Cette fonction utilise le contexte de rendu 2D pour afficher le score actuel
+ * du joueur à l'écran. Le score est affiché en haut à gauche du canvas, avec une
+ * taille de police et une couleur spécifiques.
+ *
+ * @param {CanvasRenderingContext2D} ctx - Le contexte de rendu 2D du canvas utilisé pour dessiner.
+ * @param {number} score - Le score actuel du joueur à afficher.
+ */
+
+export function drawGameOver(ctx, canvas, score) {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  
+  // Configure la police et l'alignement
+  ctx.font = "40px Arial";
+  ctx.fillStyle = "red";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  
+  // Affiche "GAME OVER" en haut
+  ctx.fillText("GAME OVER", canvas.width / 2, canvas.height / 2 - 20);
+  
+  // Change éventuellement la taille de police pour le score
+  ctx.font = "30px Arial";
+  ctx.fillText("Score: " + score, canvas.width / 2, canvas.height / 2 + 20);
+
+  ctx.font="20px Arial";
+  ctx.fillText("Appuyez sur Espace pour recommencer", canvas.width / 2, canvas.height / 2 + 60);
 }

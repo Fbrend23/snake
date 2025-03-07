@@ -1,7 +1,7 @@
 import { initSnake, moveSnake, drawSnake } from "./snake.js";
 import { generateFood, drawFood } from "./food.js";
 import { handleDirectionChange } from "./controls.js";
-// import { checkCollision, checkWallCollision } from "./collision.js";
+import { checkCollision, drawGameOver, /*checkWallCollision*/ } from "./collision.js";
 import { drawScore } from "./score.js";
 
 const canvas = document.getElementById("gameCanvas");
@@ -26,6 +26,7 @@ document.addEventListener("keydown", (event) => {
 });
 
 function startGame() {
+  
   document.getElementById("StartGamu").textContent =""; //Efface le message d'instruction de départ
 
   snake = initSnake(box); //initilisation du snake
@@ -37,19 +38,29 @@ function startGame() {
 }
 
 function draw() {
-  // console.log("Longueur du serpent :", snake.length);
-  // console.log("Position de la tête :", snake[0]);
-  // console.log("Position de la nourriture :", food);
+  /// console.log("Longueur du serpent :", snake.length);
+  /// console.log("Position de la tête :", snake[0]);
+  /// console.log("Position de la nourriture :", food);
 
   ctx.clearRect(0, 0, canvas.width, canvas.height); // Efface le canvas
+
+  if(checkCollision(snake) /*|| checkWallCollision(snake, canvas, box)*/){
+    clearInterval(gameInterval); // Arrête le jeu
+    drawGameOver(ctx, canvas, score); // Affiche le message de fin de jeu
+    gameInterval = null; // Réinitialise l'identifiant de l'intervalle
+    score = 0; // Réinitialise le score
+    return;
+  }
   moveSnake(snake, direction, box);
-  // console.log("Le serpent mange ! Taille avant = ", snake.length);
+
+  /// console.log("Le serpent mange ! Taille avant = ", snake.length);
+
   //Vérifie si le serpent mange de la nourriture
   if (snake[0].x === food.x && snake[0].y === food.y) {
     food = generateFood(box, canvas, snake);
     score++;
     console.log(score);
-    // console.log("Taille après = ", snake.length);
+    /// console.log("Taille après = ", snake.length);
   }else{
     snake.pop(); //Supprime la queue si le serpent ne mange rien pour simuler le déplacement
   }
