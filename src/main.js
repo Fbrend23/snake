@@ -2,7 +2,7 @@ import { initSnake, moveSnake, drawSnake } from "./snake.js";
 import { generateFood, drawFood } from "./food.js";
 import { handleDirectionChange } from "./controls.js";
 import { checkCollision, drawGameOver, checkWallCollision } from "./collision.js";
-import { drawScore } from "./score.js";
+import { displayHighScores, drawScore, saveScore } from "./score.js";
 
 const canvas = document.getElementById("gameCanvas");       //Récupère l'élément canvas
 const ctx = canvas.getContext("2d");                        //Récupère le contexte 2D du canvas           
@@ -40,6 +40,8 @@ document.addEventListener("keydown", (event) => {
 
 //Affiche le message d'instruction de départ
 welcomeMessage();
+//Affiche les scores
+displayHighScores();
 
 //Fonction pour lancer le jeu
 function startGame() {
@@ -61,6 +63,7 @@ function draw() {
   if(checkCollision(snake) || checkWallCollision(snake, canvas, box)){
     clearInterval(gameInterval); // Arrête le jeu
     drawGameOver(ctx, canvas, score); // Affiche le message de fin de jeu
+    saveScore(score); // Sauvegarde le score
     gameInterval = null; // Réinitialise l'identifiant de l'intervalle
     score = 0; // Réinitialise le score
     return;

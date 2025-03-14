@@ -40,3 +40,13 @@ body {
   #SpaceBar{
     height: 100px;
   }
+
+  #scoreboard{
+    margin: -180px 100px 0px 0px;
+  }
+
+  #scoreboard > ol{
+    font-size: 18px;
+    margin: 0px;
+    text-align: center;
+  }
