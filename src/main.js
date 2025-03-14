@@ -8,7 +8,7 @@ const canvas = document.getElementById("gameCanvas");       //Récupère l'élé
 const ctx = canvas.getContext("2d");                        //Récupère le contexte 2D du canvas           
 
 const box = 20;             //Taille d'un carré pour le serpent et la pomme
-const gameSpeed = 200;      //Vitesse du jeu
+const gameSpeed = 100;      //Vitesse du jeu
 let gamePaused = false;     //Variable pour stocker l'état du jeu
 let snake;                  // Initialisation du serpent
 let food;                   // Initialisation de la nourriture
@@ -107,7 +107,7 @@ function resumeGame(){
 function drawPause(){
   // Configure la police et l'alignement
   ctx.font = "40px Arial";
-  ctx.fillStyle = "Blue";
+  ctx.fillStyle = "Black";
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
   

@@ -13,11 +13,14 @@ body {
   h1,h2,h3, #score, #StartGamu{
     text-align: center;
   }
-
+#score{
+    font-size: 20px;
+}
   span{
     color: green;
     text-decoration: underline;
     font-weight: bold;
+    
   }
 
   img{
