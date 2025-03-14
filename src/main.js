@@ -107,7 +107,7 @@ function resumeGame(){
 function drawPause(){
   // Configure la police et l'alignement
   ctx.font = "40px Arial";
-  ctx.fillStyle = "red";
+  ctx.fillStyle = "Blue";
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
   
