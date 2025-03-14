@@ -70,7 +70,7 @@ export function drawGameOver(ctx, canvas, score) {
   // Affiche "GAME OVER" en haut
   ctx.fillText("GAME OVER", canvas.width / 2, canvas.height / 2 - 20);
   
-  // Change éventuellement la taille de police pour le score
+  // Change la taille de police pour le score
   ctx.font = "30px Arial";
   ctx.fillText("Score: " + score, canvas.width / 2, canvas.height / 2 + 20);
 

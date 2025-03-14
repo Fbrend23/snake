@@ -57,14 +57,17 @@ export function moveSnake(snake, direction, box) {
  * @param {number} box - La taille d'une case de la grille en pixels, utilisée pour déterminer la taille de chaque segment du serpent.
  */
 export function drawSnake(ctx,snake,box) {
-  //parcours le tableau snake
+  //parcours le tableau snake 
   snake.forEach((segment, index) => {  
-    if (index === 0){
+    if (index === 0){ 
       ctx.fillStyle ="red";
+      ctx.strokeRect(segment.x, segment.y, box, box);
     }else
       {
-      ctx.fillStyle = "grey";
+        ctx.fillStyle = "grey";
       }
-  ctx.fillRect(segment.x, segment.y, box, box);
+    ctx.fillRect(segment.x, segment.y, box, box);
+    ctx.strokeStyle = "white";
+    ctx.strokeRect(segment.x, segment.y, box, box);
   });
 }
