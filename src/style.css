@@ -19,3 +19,21 @@ body {
     text-decoration: underline;
     font-weight: bold;
   }
+
+  img{
+    height: auto;
+    width: 100px;
+    margin: 0px 5px;
+  }
+
+  #commandsImg{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 150px 0px 0px 30px;
+  }
+  
+  #SpaceBar{
+    height: 100px;
+  }
