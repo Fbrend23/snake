@@ -64,6 +64,7 @@ function draw() {
     clearInterval(gameInterval); // Arrête le jeu
     drawGameOver(ctx, canvas, score); // Affiche le message de fin de jeu
     saveScore(score); // Sauvegarde le score
+    drawScore(score); // Affiche le score
     gameInterval = null; // Réinitialise l'identifiant de l'intervalle
     score = 0; // Réinitialise le score
     return;
