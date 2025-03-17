@@ -75,6 +75,8 @@ function draw() {
   if (snake[0].x === food.x && snake[0].y === food.y) {
     food = generateFood(box, canvas, snake);
     score++;
+    saveScore(score);
+    displayHighScores();
     console.log(score);
     /// console.log("Taille après = ", snake.length);
   }else{
