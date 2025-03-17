@@ -50,9 +50,9 @@ export function displayHighScores() {
   const highScores = getHighScores();
   // Affiche dans un élément HTML <div id="scoreboard">
   const scoreboard = document.getElementById("scoreboard");
-  scoreboard.innerHTML = "<h2>Classement</h2>";
+  scoreboard.innerHTML = "<ol>Classement</ol>";
   highScores.forEach((score, index) => {
-    scoreboard.innerHTML += `<ol>${index + 1}. ${score}</ol>`;
+    scoreboard.innerHTML += `<li>${index + 1}. ${score}</li>`;
   });
 }
 
